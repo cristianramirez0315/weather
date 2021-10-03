@@ -1,30 +1,37 @@
-#weatherToday {
-    margin: 10px;
-    padding: 15px;
-}
-
-#inputSection {
-    margin: auto;
-    margin-top: 15px;
-}
-
-#inputHeader {
-    font-size: 30px;
-    font-weight: bold;
-    font-family: sans-serif;
-}
-
 .header {
-    background-color: blue;
-    color: whitesmoke;
+    background-color: black;
+    color: white;
     height: 50px;
-    width: 100%;
-    font-size: 35px;
+    font-size: 36px;
     text-align: center;
     font-family: sans-serif;
+}
+
+#forecast {
+    display: none;
+}
+
+#currentWeatherSection{
+    background-color: black;
+    color: whitesmoke;
+    padding: 15px;
+    letter-spacing: 2px;
 }
 
 #cityNameAndDate {
     font-size: 20px;
     font-weight: bold;
+}
+
+.forecast-cards {
+    padding: 10px;
+    background-color: black;
+    color: whitesmoke;
+}
+
+#recentSearches li {
+    padding: 0;
+}
+#recentSearches li button {
+    width: 100%;
 }

@@ -23,40 +23,51 @@
   </head>
 
   <body>
-    <div class="container">
-        <div class="header">Weather Dashboard</div>
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="row" id="inputSection">
-                    <div id="inputHeader">Search for a city: </div>
-                    <input type="text" id="city" class="col-md-8">
-                    <div class="col-4 col-md-4">
-                        <button class="btn btn-primary" onclick="fetchWeather()">
-                          Search
-                        </button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="cityName"></div>
-                 </div>
+    <div class="header mb-3">Weather Dashboard</div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="input-group">
+            <input
+              id="city"
+              type="text"
+              class="form-control"
+              placeholder="Search for a city"
+              aria-label="Search for a city"
+            />
+            <div class="input-group-append">
+              <button
+                class="btn btn-dark"
+                type="button"
+                onclick="fetchWeather()"
+              >
+                Search
+              </button>
             </div>
-            <div class="col col-sm-8">
-                <div class="row flex-column" id="weatherToday">
-                   <div id="cityNameAndDate"></div>
-                   <div id="temp"></div>
-                   <div id="wind"></div>
-                   <div id="humidity"></div>
-                   <div id="uvIndex"></div>
-                </div>
-                <div class="row justify-content-lg-between" id="fiveDayForecast">
-                    <div id="day-1" class="col"></div>
-                    <div id="day-2" class="col"></div>
-                    <div id="day-3" class="col"></div>
-                    <div id="day-4" class="col"></div>
-                    <div id="day-5" class="col"></div>
-                </div>
-            </div>
+          </div>
+          <ul id="recentSearches" class="list-group mt-3"></ul>
         </div>
+        <div id="forecast" class="col-lg-8">
+          <section id="currentWeatherSection" class="mb-3">
+            <div id="cityNameAndDate"></div>
+            <div id="temp"></div>
+            <div id="wind"></div>
+            <div id="humidity"></div>
+            <div id="uvIndex"></div>
+          </section>
+
+          <section>
+            <h3>5-day forecast:</h3>
+            <div class="row">
+              <div id="day-1" class="col"></div>
+              <div id="day-2" class="col"></div>
+              <div id="day-3" class="col"></div>
+              <div id="day-4" class="col"></div>
+              <div id="day-5" class="col"></div>
+            </div>
+          </section>
+        </div>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
