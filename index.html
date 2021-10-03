@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style/style.css" />
+    <title>Weather</title>
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="header">Weather Dashboard</div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row" id="inputSection">
+                    <div id="inputHeader">Search for a city: </div>
+                    <input type="text" id="city" class="col-md-8">
+                    <div class="col-4 col-md-4">
+                        <button class="btn btn-primary" onclick="fetchWeather()">
+                          Search
+                        </button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cityName"></div>
+                 </div>
+            </div>
+            <div class="col col-sm-8">
+                <div class="row flex-column" id="weatherToday">
+                   <div id="cityNameAndDate"></div>
+                   <div id="temp"></div>
+                   <div id="wind"></div>
+                   <div id="humidity"></div>
+                   <div id="uvIndex"></div>
+                </div>
+                <div class="row justify-content-lg-between" id="fiveDayForecast">
+                    <div id="day-1" class="col"></div>
+                    <div id="day-2" class="col"></div>
+                    <div id="day-3" class="col"></div>
+                    <div id="day-4" class="col"></div>
+                    <div id="day-5" class="col"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>

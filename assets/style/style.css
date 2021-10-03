@@ -1,0 +1,30 @@
+#weatherToday {
+    margin: 10px;
+    padding: 15px;
+}
+
+#inputSection {
+    margin: auto;
+    margin-top: 15px;
+}
+
+#inputHeader {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
+.header {
+    background-color: blue;
+    color: whitesmoke;
+    height: 50px;
+    width: 100%;
+    font-size: 35px;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+#cityNameAndDate {
+    font-size: 20px;
+    font-weight: bold;
+}
