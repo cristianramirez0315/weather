@@ -17,4 +17,4 @@ https://cristianramirez0315.github.io/weather
 4. openweathermap api is used to grab the weather data
 
 
-![Screen Shot 2021-10-03 at 11 39 41 PM](https://user-images.githubusercontent.com/41925559/135789507-e4ce271e-d638-438e-86d4-51f7a01e8dc7.png)
+![Screen Shot 2021-10-04 at 1 47 28 AM](https://user-images.githubusercontent.com/41925559/135800254-20fe14e7-b39d-4a79-9cd8-85c99e3f4741.png)
