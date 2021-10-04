@@ -43,7 +43,7 @@ async function fetchWeather() {
 
     const cityName = document.querySelector("#city").value;
     const key = "b20064f7836760055cac601b67d7c4cd";
-    let getCoordinates = `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`;
+    let getCoordinates = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${key}`;
 
     await fetch(getCoordinates)
         .then((response) => {
@@ -55,6 +55,7 @@ async function fetchWeather() {
         })
         .then((data) => {
             // get the coordinates from city name
+            console.log(data);
             lat = data.coord.lat;
             lon = data.coord.lon;
             city = data.name;
@@ -82,11 +83,13 @@ async function fetchWeather() {
 }
 
 function displayCurrentWeather(currentWeather) {
+    $("#currentWeatherImage").src = "https://openweathermap.org/img/wn/" + currentWeather.weather[0].icon + ".png";
     $("#cityNameAndDate").text(city + " (" + formatDate() + ")");
     $("#temp").text("Temperature: " + Math.floor(currentWeather.temp) + "°F");
     $("#wind").text("Wind speed: " + currentWeather.wind_speed + " MPH");
     $("#humidity").text("Humidity: " + currentWeather.humidity + "%");
     $("#uvIndex").text("Uv index: " + currentWeather.uvi);
+    console.log($("#currentWeatherImage").src);
 }
 
 function displayForecast(forecast) {
