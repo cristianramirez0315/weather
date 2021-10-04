@@ -1,5 +1,5 @@
 .header {
-    background-color: black;
+    background-color: #3b4f82;
     color: white;
     height: 50px;
     font-size: 36px;
@@ -7,15 +7,23 @@
     font-family: sans-serif;
 }
 
+#uvIndexValue {
+    font-weight: bold;
+    width: min-content;
+    padding: 4px;
+    border-radius: 5px;
+}
+
 #forecast {
     display: none;
 }
 
 #currentWeatherSection{
-    background-color: black;
-    color: whitesmoke;
+    background-color: lightsteelblue;
+    color: black;
     padding: 15px;
     letter-spacing: 2px;
+    border-radius: 10px 40px 40px 10px;
 }
 
 #cityNameAndDate {
@@ -24,9 +32,11 @@
 }
 
 .forecast-cards {
+    letter-spacing: 0.5px;
     padding: 10px;
-    background-color: black;
-    color: whitesmoke;
+    background-color: lightsteelblue;
+    color: black;
+    border-radius: 10px 40px 40px 10px;
 }
 
 #recentSearches li {

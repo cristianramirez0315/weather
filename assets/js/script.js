@@ -3,6 +3,7 @@ let weatherForecast = {};
 let lat;
 let lon;
 let city;
+let iconUrl;
 const days = [
     "Sunday",
     "Monday",
@@ -26,6 +27,10 @@ const months = [
     "Nov",
     "Dec",
 ];
+
+function inRange(x, min, max) {
+    return ((x - min) * (x - max) <= 0);
+}
 
 function formatDate(timestamp) {
     let time = new Date();
@@ -54,8 +59,7 @@ async function fetchWeather() {
             return response.json();
         })
         .then((data) => {
-            // get the coordinates from city name
-            console.log(data);
+            iconUrl = "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
             lat = data.coord.lat;
             lon = data.coord.lon;
             city = data.name;
@@ -83,22 +87,37 @@ async function fetchWeather() {
 }
 
 function displayCurrentWeather(currentWeather) {
-    //$("#currentWeatherImage").src = "https://openweathermap.org/img/wn/" + currentWeather.weather[0].icon + ".png";
-    $("#cityNameAndDate").text(city + " (" + formatDate() + ")");
+    $("#cityNameAndDate").html(city + " (" + formatDate() + ")" + "<img src='" + iconUrl + "'>");
     $("#temp").text("Temperature: " + Math.floor(currentWeather.temp) + "°F");
     $("#wind").text("Wind speed: " + currentWeather.wind_speed + " MPH");
     $("#humidity").text("Humidity: " + currentWeather.humidity + "%");
-    $("#uvIndex").text("Uv index: " + currentWeather.uvi);
+    $("#uvIndexValue").text(currentWeather.uvi);
+
+    // change the background color of uvi according to its value
+    if (inRange(currentWeather.uvi, 0, 2)) {
+        $('#uvIndexValue').css({ "background-color": "#2dc906" });
+    } else if (inRange(currentWeather.uvi, 3, 6)) {
+        $('#uvIndexValue').css({ "background-color": "#ffa44f" });
+    } else {
+        $('#uvIndexValue').css({ "background-color": "#ff6363" });
+    }
 }
 
 function displayForecast(forecast) {
     forecast.forEach((weather, index) => {
-        html = `<div class="forecast-cards"><div class="date">${formatDate(
-            weather.dt
-        )}</div>
-        <div class="temperature">Temp: ${Math.floor(weather.temp.day)}°F</div>
-        <div class="wind">Wind: ${weather.wind_speed} MPH</div>
-        <div class="humidity">Humidity: ${weather.humidity}%</div></div>`;
+        let icon = "https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png";
+        html = `<div class="forecast-cards">
+        <img src="${icon}">
+        <div class="date">
+          ${formatDate(weather.dt)}
+        </div>
+        <div class="temperature">Temp: ${Math.floor(weather.temp.day)}°F
+        </div>
+        <div class="wind">Wind: ${weather.wind_speed} MPH
+        </div>
+        <div class="humidity">Humidity: ${weather.humidity}%
+        </div>
+      </div>`;
 
         $(`#day-${index}`).html(html);
     });
