@@ -83,13 +83,12 @@ async function fetchWeather() {
 }
 
 function displayCurrentWeather(currentWeather) {
-    $("#currentWeatherImage").src = "https://openweathermap.org/img/wn/" + currentWeather.weather[0].icon + ".png";
+    //$("#currentWeatherImage").src = "https://openweathermap.org/img/wn/" + currentWeather.weather[0].icon + ".png";
     $("#cityNameAndDate").text(city + " (" + formatDate() + ")");
     $("#temp").text("Temperature: " + Math.floor(currentWeather.temp) + "°F");
     $("#wind").text("Wind speed: " + currentWeather.wind_speed + " MPH");
     $("#humidity").text("Humidity: " + currentWeather.humidity + "%");
     $("#uvIndex").text("Uv index: " + currentWeather.uvi);
-    console.log($("#currentWeatherImage").src);
 }
 
 function displayForecast(forecast) {
